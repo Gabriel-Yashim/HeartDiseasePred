@@ -1,5 +1,7 @@
 import streamlit as st
 import pickle
+import pandas as pd
+
 
 # Load the trained XGBoost model
 model = pickle.load(open('GBC_model.pkl', 'rb'))
@@ -8,7 +10,7 @@ model = pickle.load(open('GBC_model.pkl', 'rb'))
 st.title('Carviovascular Disease Prediction System')
 html_temp = """
     <h3 style="color:white;text-align:center;"></h3>
-    <div style="background-color:rgb(117, 3, 3);padding:10px;margin-bottom:3rem">
+    <div style="background-color:#00246b; padding:10px; margin-bottom:3rem">
         <p style="text-align:justify;">
             Welcome to this simple Carviovascular Disease Prediction System. The system can tell if a person has Carviovascular Disease based on the following features: Age, Glucose, BloodPressure (Systolic and Diastolic), BMI, Diabetes Cholesterol <br> 
             Fill the fields below with the right data to get predictions.
@@ -26,6 +28,8 @@ def preprocess_input(data):
     data['Cholesterol'] = cat_mapping.get(data['Cholesterol'], 1)
     data['Glucose'] = cat_mapping.get(data['Glucose'], 1)
 
+    df = pd.DataFrame(data)
+    return df
 
 def main():
     st.title("Alzheimer's Prediction App")
