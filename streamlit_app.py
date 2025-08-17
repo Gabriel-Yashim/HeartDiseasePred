@@ -4,7 +4,7 @@ import pandas as pd
 import numpy as np
 
 
-model = pickle.load(open('GBC_model.pkl', 'rb'))
+model = pickle.load(open('/Users/Gabriel_Yashim/Documents/GitHub/HeartDiseasePred/GBC_model.pkl', 'rb'))
 
 
 st.title('Carviovascular Disease Prediction System')
@@ -38,11 +38,11 @@ def main():
     with st.form(key='input_form'):
         age = st.number_input("Age (Years)", min_value=0,  value=0)
         gender = st.selectbox("Gender", ["Male", "Female"])
-        height = st.number_input("Height", min_value=0.0, value=0.0)
+        height = st.number_input("Height", min_value=0.0, value=0)
         weight = st.number_input("Weight", min_value=0.0, value=0.0)
+        bmi = st.number_input("BMI", min_value=0.0, value=0.0)
         ap_hi = st.number_input("SystolicBP", min_value=0.0, value=0.0)
         ap_lo = st.number_input("DiastolicBP", min_value=0.0, value=0.0)
-        bmi = st.number_input("BMI", min_value=0.0, value=0.0)
         cholesterol = st.selectbox("Cholesterol", ['Normal', 'Above Normal', 'Well Above Normal'])
         glucose = st.selectbox("Glucose", ['Normal', 'Above Normal', 'Well Above Normal'])
 
@@ -56,9 +56,9 @@ def main():
             'Gender': gender,
             'Height': height,
             'Weight': weight,
+            'BMI': bmi,
             'SystolicBP': ap_hi,
             'DiastolicBP': ap_lo,
-            'BMI': bmi,
             'Cholesterol': cholesterol,
             'Glucose': glucose
         }
