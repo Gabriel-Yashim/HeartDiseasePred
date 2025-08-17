@@ -1,9 +1,9 @@
 import streamlit as st
 import pickle
 import pandas as pd
+import numpy as np
 
 
-# Load the trained XGBoost model
 model = pickle.load(open('GBC_model.pkl', 'rb'))
 
 
