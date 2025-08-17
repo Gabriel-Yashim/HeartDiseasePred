@@ -3,7 +3,7 @@ import joblib
 import pandas as pd
 
 
-model = joblib.load(open('/Users/Gabriel_Yashim/Documents/GitHub/HeartDiseasePred/GBC_model.joblib', 'rb'))
+model = joblib.load(open('GBC_model.joblib', 'rb'))
 
 
 st.title('Carviovascular Disease Prediction System')
