@@ -1,10 +1,9 @@
 import streamlit as st
-import pickle
+import joblib
 import pandas as pd
-import numpy as np
 
 
-model = pickle.load(open('/Users/Gabriel_Yashim/Documents/GitHub/HeartDiseasePred/GBC_model.pkl', 'rb'))
+model = joblib.load(open('/Users/Gabriel_Yashim/Documents/GitHub/HeartDiseasePred/GBC_model.joblib', 'rb'))
 
 
 st.title('Carviovascular Disease Prediction System')
